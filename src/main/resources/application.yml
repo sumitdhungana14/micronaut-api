@@ -1,0 +1,28 @@
+micronaut:
+  application:
+    name: api
+    hibernate:
+      cache:
+        queries: false
+        use_second_level_cache: true
+        use_query_cache: false
+        region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+  server:
+    port: 8081
+datasources:
+  default:
+    url: ${JDBC_URL:`jdbc:mysql://localhost:3306/micronaut`}
+    username: ${JDBC_USER:sumitdhungana14}
+    password: ${JDBC_PASSWORD:password}
+    driverClassName: ${JDBC_DRIVER:com.mysql.cj.jdbc.Driver}
+jpa:
+  default:
+      packages-to-scan:
+          - 'api.models'
+      properties:
+          hibernate:
+            hbm2ddl:
+              auto: update
+            properties:
+              hibernate:
+                show_sql: true
