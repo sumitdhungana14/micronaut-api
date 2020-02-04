@@ -42,8 +42,8 @@ public class UserController {
     @Put("/{id}")
     public HttpResponse editUser(@Body User user, int id){
         user.setId(id);
-        userService.editUser(user);
-        return HttpResponse.ok();
+        User newUser = userService.editUser(user);
+        return HttpResponse.ok().body(newUser);
     }
 
 

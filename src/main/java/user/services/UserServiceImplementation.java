@@ -30,7 +30,7 @@ public class UserServiceImplementation implements UserService{
         userRepository.deleteById(id);
     }
 
-    public void editUser(User user){
-        userRepository.update(user);
+    public User editUser(User user){
+        return userRepository.update(user);
     }
 }
