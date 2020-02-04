@@ -1,4 +1,4 @@
-package api.repositories;
+package user.repositories;
 
 //import api.models.User;
 //import edu.umd.cs.findbugs.annotations.NonNull;

@@ -1,4 +1,4 @@
-package api.services;
+package user.services;
 
 // import api.repositories.UserRepository;
 
