@@ -53,7 +53,7 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = "api.Application"
+mainClassName = "user.Application"
 
 // use JUnit 5 platform
 test {

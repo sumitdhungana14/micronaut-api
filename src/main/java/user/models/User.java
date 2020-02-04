@@ -1,4 +1,4 @@
-package api.models;
+package user.models;
 
 // import io.micronaut.core.annotation.Introspected;
 
@@ -13,6 +13,8 @@ public class User{
     @Column(name = "username")
     private String username;
 
+    @Column(name = "email")
+    private String email;
 
     public int getId(){
         return this.id;
@@ -30,4 +32,11 @@ public class User{
         return this.username;
     }
 
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
 }

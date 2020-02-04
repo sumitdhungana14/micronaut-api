@@ -1,8 +1,11 @@
-package api.repositories;
+package user.repositories;
 
-import api.models.User;
+import user.models.User;
+import user.models.UserDTO;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
+
+import java.util.List;
 
 
 //import javax.validation.constraints.NotBlank;
@@ -16,4 +19,7 @@ import io.micronaut.data.repository.CrudRepository;
  */
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
+    List<UserDTO> list();
+
+//    UserDTO listById(int id);
 }

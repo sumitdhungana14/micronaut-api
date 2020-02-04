@@ -1,10 +1,10 @@
-package api;
+package user.controller;
 
-import api.models.User;
+import user.models.*;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 
-import api.repositories.UserRepository;
+import user.repositories.UserRepository;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -21,8 +21,8 @@ public class UserController {
     }
 
     @Get("/")
-    public Iterable<User> index() {
-        return userRepository.findAll();
+    public Iterable<UserDTO> index() {
+        return userRepository.list();
     }
 
     @Post("/addUser")
