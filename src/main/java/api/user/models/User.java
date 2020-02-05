@@ -1,6 +1,6 @@
-package user.models;
+package api.user.models;
 
-// import io.micronaut.core.annotation.Introspected;
+import api.college.models.College;
 
 import javax.persistence.*;
 
@@ -15,6 +15,9 @@ public class User{
 
     @Column(name = "email")
     private String email;
+
+    @ManyToOne
+    private College college;
 
     public int getId(){
         return this.id;

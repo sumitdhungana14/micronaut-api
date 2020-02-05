@@ -1,4 +1,4 @@
-package user;
+package api.user;
 
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.client.RxHttpClient;
@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MicronautTest
-public class ProductControllerTest {
+public class UserControllerTest {
 
     @Inject
     EmbeddedServer embeddedServer;
@@ -20,7 +20,7 @@ public class ProductControllerTest {
     @Test
     public void testIndex() throws Exception {
         try(RxHttpClient client = embeddedServer.getApplicationContext().createBean(RxHttpClient.class, embeddedServer.getURL())) {
-            assertEquals(HttpStatus.OK, client.toBlocking().exchange("/product").status());
+            assertEquals(HttpStatus.OK, client.toBlocking().exchange("/user").status());
         }
     }
 }

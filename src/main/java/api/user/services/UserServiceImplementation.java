@@ -1,8 +1,8 @@
-package user.services;
+package api.user.services;
 
-import user.models.User;
-import user.models.UserDTO;
-import user.repositories.UserRepository;
+import api.user.models.User;
+import api.user.models.UserDTO;
+import api.user.repositories.UserRepository;
 
 import javax.inject.Inject;
 import java.util.List;

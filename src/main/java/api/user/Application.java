@@ -1,4 +1,4 @@
-package user;
+package api.user;
 
 import io.micronaut.runtime.Micronaut;
 

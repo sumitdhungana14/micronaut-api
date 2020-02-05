@@ -1,7 +1,7 @@
-package user.repositories;
+package api.user.repositories;
 
-import user.models.User;
-import user.models.UserDTO;
+import api.user.models.User;
+import api.user.models.UserDTO;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
 

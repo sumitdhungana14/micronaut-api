@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: api
+    name: micronaut-api
     hibernate:
       cache:
         queries: false
@@ -18,7 +18,7 @@ datasources:
 jpa:
   default:
       packages-to-scan:
-          - 'user.models'
+          - 'api'
       properties:
           hibernate:
             hbm2ddl:

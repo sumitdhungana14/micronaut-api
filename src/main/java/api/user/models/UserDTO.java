@@ -1,4 +1,4 @@
-package user.models;
+package api.user.models;
 
 import io.micronaut.core.annotation.Introspected;
 

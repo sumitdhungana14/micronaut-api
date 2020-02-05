@@ -1,11 +1,10 @@
-package user.controller;
+package api.user.controller;
 
-import user.models.*;
+import api.user.models.*;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 
-import user.repositories.UserRepository;
-import user.services.UserService;
+import api.user.services.UserService;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
