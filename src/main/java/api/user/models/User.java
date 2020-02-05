@@ -57,4 +57,8 @@ public class User{
     public void setCollege(College college) {
         this.college = college;
     }
+
+    public int getCollegeId() {
+        return collegeId;
+    }
 }

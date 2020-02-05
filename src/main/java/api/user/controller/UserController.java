@@ -1,5 +1,7 @@
 package api.user.controller;
 
+import api.college.models.College;
+import api.college.services.CollegeServices;
 import api.user.models.*;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
@@ -9,12 +11,16 @@ import api.user.services.UserService;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Controller("/user")
 public class UserController {
 
     @Inject
     UserService userService;
+
+    @Inject
+    CollegeServices collegeServices;
 
     @Get("/{id}")
     public HttpResponse getUserbyId(int id){
@@ -30,6 +36,9 @@ public class UserController {
     public HttpResponse addUser(@Body @Valid User user){
         //fetch college by collegeId
         //user.setCollege();
+        Optional<College> college = collegeServices.findById(user.getCollegeId());
+        if (college.isEmpty()) return HttpResponse.notFound("College not found");
+        user.setCollege(college.get());
         userService.add(user);
         return HttpResponse.ok();
     }
