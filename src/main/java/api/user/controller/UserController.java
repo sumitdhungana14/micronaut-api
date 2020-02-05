@@ -28,6 +28,8 @@ public class UserController {
 
     @Post("/addUser")
     public HttpResponse addUser(@Body @Valid User user){
+        //fetch college by collegeId
+        //user.setCollege();
         userService.add(user);
         return HttpResponse.ok();
     }

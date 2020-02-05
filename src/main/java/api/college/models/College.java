@@ -1,6 +1,10 @@
 package api.college.models;
 
+import api.user.models.User;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "college")
 public class College {
@@ -15,6 +19,9 @@ public class College {
     @Column(name = "name")
     private String name;
 
+//    @OneToMany
+//    @JoinColumn(name = "college_id" )
+//    private List<User> users= new ArrayList<User>();
 
     public int getId() {
         return id;

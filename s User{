@@ -1,0 +1,25 @@
+[1mdiff --git a/src/main/java/api/college/models/College.java b/src/main/java/api/college/models/College.java[m
+[1mindex 6c37566..d58d2c5 100644[m
+[1m--- a/src/main/java/api/college/models/College.java[m
+[1m+++ b/src/main/java/api/college/models/College.java[m
+[36m@@ -1,6 +1,10 @@[m
+ package api.college.models;[m
+ [m
+[32m+[m[32mimport api.user.models.User;[m
+[32m+[m
+ import javax.persistence.*;[m
+[32m+[m[32mimport java.util.ArrayList;[m
+[32m+[m[32mimport java.util.List;[m
+ [m
+ @Entity(name = "college")[m
+ public class College {[m
+[36m@@ -15,6 +19,9 @@[m [mpublic class College {[m
+     @Column(name = "name")[m
+     private String name;[m
+ [m
+[32m+[m[32m//    @OneToMany[m
+[32m+[m[32m//    @JoinColumn(name = "college_id" )[m
+[32m+[m[32m//    private List<User> users= new ArrayList<User>();[m
+ [m
+     public int getId() {[m
+         return id;[m

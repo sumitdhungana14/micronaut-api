@@ -1,10 +1,13 @@
 package api.user.models;
 
 import api.college.models.College;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.micronaut.core.annotation.Introspected;
 
 import javax.persistence.*;
 
 @Entity(name = "user")
+@Introspected
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +18,10 @@ public class User{
 
     @Column(name = "email")
     private String email;
+
+    @JsonProperty("college_id")
+    @Transient
+    private int collegeId;
 
     @ManyToOne
     private College college;
@@ -41,5 +48,13 @@ public class User{
 
     public String getEmail(){
         return this.email;
+    }
+
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
     }
 }
