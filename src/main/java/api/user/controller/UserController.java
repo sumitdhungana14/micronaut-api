@@ -36,11 +36,8 @@ public class UserController {
     public HttpResponse addUser(@Body @Valid User user){
         //fetch college by collegeId
         //user.setCollege();
-        Optional<College> college = collegeServices.findById(user.getCollegeId());
-        if (college.isEmpty()) return HttpResponse.notFound("College not found");
-        user.setCollege(college.get());
-        userService.add(user);
-        return HttpResponse.ok();
+
+        return HttpResponse.ok().body(userService.add(user));
     }
 
     @Delete("/{id}")

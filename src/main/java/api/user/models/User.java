@@ -19,11 +19,12 @@ public class User{
     @Column(name = "email")
     private String email;
 
-    @JsonProperty("college_id")
-    @Transient
+    @Column(name = "college_id")
+    @JsonProperty(value = "college_id")
     private int collegeId;
 
     @ManyToOne
+    @JoinColumn(name = "college_id", insertable = false, updatable = false)
     private College college;
 
     public int getId(){

@@ -15,7 +15,7 @@ public interface UserService {
 
     List<UserDTO> showAllUser();
 
-    void add(User user);
+    <T> T add(User user);
 
     void deleteById(int id);
 
