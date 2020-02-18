@@ -4,7 +4,9 @@ import api.user.models.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "college")
 public class College {
@@ -19,9 +21,8 @@ public class College {
     @Column(name = "name")
     private String name;
 
-//    @OneToMany
-//    @JoinColumn(name = "college_id" )
-//    private List<User> users= new ArrayList<User>();
+    @ManyToMany(mappedBy = "colleges")
+    private Set<User> users= new HashSet<>();
 
     public int getId() {
         return id;

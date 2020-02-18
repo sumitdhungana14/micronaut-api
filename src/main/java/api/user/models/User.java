@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.micronaut.core.annotation.Introspected;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "user")
 @Introspected
@@ -23,9 +25,14 @@ public class User{
     @JsonProperty(value = "college_id")
     private int collegeId;
 
-    @ManyToOne
-    @JoinColumn(name = "college_id", insertable = false, updatable = false)
-    private College college;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "user_college",
+                joinColumns = @JoinColumn(name="user_id"),
+                inverseJoinColumns = @JoinColumn(name = "college_id"))
+    private Set<College> colleges = new HashSet<>();
 
     public int getId(){
         return this.id;
@@ -51,15 +58,26 @@ public class User{
         return this.email;
     }
 
-    public College getCollege() {
-        return college;
+    public Set<College> getCollege() {
+        return colleges;
     }
 
-    public void setCollege(College college) {
-        this.college = college;
+    public void setCollege(Set<College> colleges) {
+        this.colleges = colleges;
     }
 
     public int getCollegeId() {
         return collegeId;
     }
+
+    public void addCollege(College college) {
+        colleges.add(college);
+//        college.getUsers().add(this);
+    }
+
+    public void removeCollege(College college) {
+        colleges.remove(college);
+//        college.getUsers().remove(this);
+    }
+
 }
