@@ -3,6 +3,7 @@ package api.college.services;
 import api.college.models.College;
 import api.college.repositories.CollegeRepository;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 public class CollegeServicesImplementation implements CollegeServices {
@@ -10,11 +11,12 @@ public class CollegeServicesImplementation implements CollegeServices {
     @Inject
     CollegeRepository collegeRepository;
 
+    @Transactional
     public Optional<College> findById(int id){
         return collegeRepository.findById(id);
     }
 
-
+    @Transactional
     public Iterable<College> showAllCollege(){
         return collegeRepository.findAll();
     }

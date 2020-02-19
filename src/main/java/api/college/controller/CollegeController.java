@@ -6,6 +6,7 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -17,7 +18,7 @@ public class CollegeController {
 
     @Get("/{id}")
     public HttpResponse getCollegeById(int id){
-        return HttpResponse.ok().body(collegeServices.findById(id));
+        return HttpResponse.ok().body(collegeServices.findById(id).toString());
     }
 
     @Get("/")

@@ -21,7 +21,7 @@ public class College {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "colleges")
+    @ManyToMany(mappedBy = "colleges", fetch = FetchType.LAZY)
     private Set<User> users= new HashSet<>();
 
     public int getId() {
@@ -46,5 +46,13 @@ public class College {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }
