@@ -15,9 +15,9 @@ public interface UserService {
 
     List<UserDTO> showAllUser();
 
-    void add(User user);
+    User add(User user);
 
     void deleteById(int id);
 
-    User editUser(User user);
+    User editUser(User user, int id);
 }

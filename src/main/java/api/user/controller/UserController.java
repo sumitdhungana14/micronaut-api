@@ -1,5 +1,7 @@
 package api.user.controller;
 
+import api.college.models.College;
+import api.college.services.CollegeServices;
 import api.user.models.*;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
@@ -7,14 +9,19 @@ import io.micronaut.http.annotation.*;
 import api.user.services.UserService;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Controller("/user")
 public class UserController {
 
     @Inject
     UserService userService;
+
+    @Inject
+    CollegeServices collegeServices;
 
     @Get("/{id}")
     public HttpResponse getUserbyId(int id){
@@ -30,8 +37,8 @@ public class UserController {
     public HttpResponse addUser(@Body @Valid User user){
         //fetch college by collegeId
         //user.setCollege();
-        userService.add(user);
-        return HttpResponse.ok();
+
+        return HttpResponse.ok().body(userService.add(user).toString());
     }
 
     @Delete("/{id}")
@@ -42,9 +49,8 @@ public class UserController {
 
     @Put("/{id}")
     public HttpResponse editUser(@Body User user, int id){
-        user.setId(id);
-        User newUser = userService.editUser(user);
-        return HttpResponse.ok().body(newUser);
+
+        return HttpResponse.ok().body(userService.editUser(user, id).toString());
     }
 
 

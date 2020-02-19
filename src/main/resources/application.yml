@@ -8,7 +8,7 @@ micronaut:
         use_query_cache: false
         region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
   server:
-    port: 8081
+    port: 8080
 datasources:
   default:
     url: ${JDBC_URL:`jdbc:mysql://localhost:3306/micronaut`}
