@@ -1,6 +1,7 @@
 package api.college.models;
 
 import api.user.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class College {
     private String name;
 
     @ManyToMany(mappedBy = "colleges", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<User> users= new HashSet<>();
 
     public int getId() {

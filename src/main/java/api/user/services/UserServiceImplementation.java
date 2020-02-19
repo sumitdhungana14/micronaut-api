@@ -20,6 +20,7 @@ public class UserServiceImplementation implements UserService {
     @Inject
     CollegeServices collegeServices;
 
+    @Transactional
     public Optional<User> findById(int id) {
         return userRepository.findById(id);
     }

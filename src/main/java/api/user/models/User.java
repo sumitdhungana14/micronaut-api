@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Entity(name = "user")
 @Introspected
-@Transactional
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,9 +20,11 @@ public class User{
     @Column(name = "username")
     private String username;
 
+
     @Column(name = "email")
     private String email;
 
+    @JsonIgnore
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -61,11 +62,11 @@ public class User{
         return this.email;
     }
 
-    public Set<College> getCollege() {
+    public Set<College> getColleges() {
         return colleges;
     }
 
-    public void setCollege(Set<College> colleges) {
+    public void setColleges(Set<College> colleges) {
         this.colleges = colleges;
     }
 
