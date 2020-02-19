@@ -18,7 +18,7 @@ public class CollegeController {
 
     @Get("/{id}")
     public HttpResponse getCollegeById(int id){
-        return HttpResponse.ok().body(collegeServices.findById(id).toString());
+        return HttpResponse.ok().body(collegeServices.findById(id));
     }
 
     @Get("/")

@@ -38,7 +38,7 @@ public class UserController {
         //fetch college by collegeId
         //user.setCollege();
 
-        return HttpResponse.ok().body(userService.add(user).toString());
+        return HttpResponse.ok().body(userService.add(user));
     }
 
     @Delete("/{id}")
@@ -50,7 +50,7 @@ public class UserController {
     @Put("/{id}")
     public HttpResponse editUser(@Body User user, int id){
 
-        return HttpResponse.ok().body(userService.editUser(user, id).toString());
+        return HttpResponse.ok().body(userService.editUser(user, id));
     }
 
 
